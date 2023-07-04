@@ -1,0 +1,16 @@
+#!name=Youtube Anubis Mod (Beta)
+#!desc=Pro
+
+# > DIFF
+# 1. Improve page loading speed
+# 2. The client needs to support sending Binary
+# 3. Compared with the non-Beta version, it takes up more memory, but the loading speed has been improved
+
+[Script]
+youtube.beta = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\?,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/AnubisTweaks/AnubisFirewall/master/Script/Youtube/dist/youtube.beta.js
+
+[Map Local]
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data="https://raw.githubusercontent.com/AnubisTweaks/AnubisFirewall/master/Script/Youtube/dist/blank.txt" header="Content-Type: application/vnd.yt-ump"
+
+[MITM]
+hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com
